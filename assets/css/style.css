@@ -1,0 +1,615 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------
+  [Table of contents]
+  * To keep an overview of structure of your code, we make use of table of 
+  * content. Table of content is use display the overall tree structure of your
+  * Layout. 
+  * (NOTE: Remove this commented code once you start developing the code.
+  * Remove the following table of content and add your own as this is just and 
+  * example to let you know)
+
+  1. CSS Reset Code
+    1.1. Eric Meyers Reset/HTML5 display-role reset for older browsers
+    1.2. Clear Fix
+    1.3. Font class declaration
+  2. Body
+  3. Header / .header
+    2.1. Navigation / .navbar
+  4. Content / .content
+    4.1. Left column / .leftcolumn
+    4.2. Right column / .rightcolumn
+    4.3. Sidebar / .sidebar
+      4.3.1. RSS / .rss
+      4.3.2. Search / .search
+      4.3.3. Boxes / .box
+      4.3.4. Sideblog / .sideblog
+      4.3.5. Advertisements / .ads
+  5. Footer / .footer
+  ------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Color codes]
+  * Mention the color code you have used in your html document for the respective
+  * elements given as follow. 
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following color code and add your own as this is just and 
+  * example to let you know)
+
+  Header nav: #e5e5df (Cararra)
+  Header nav a (hover): #fff (white)
+  Header nav a (active): #fff (white)
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+  [Typography]
+  * Mention the Typography you have used in your html document for the respective
+  * elements given as follow.
+  * (NOTE: Remove this commented code once you start developing the code. 
+  * Remove the following typography and add your own as this is just and 
+  * example to let you know)
+
+  Header nav a: 16px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  View-register li a : 12px 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  -------------------------------------------------------------------*/
+
+/* ==========================================================================
+   1. CSS Reset Code
+   ========================================================================== */
+
+/* 1.1. Eric Meyers Reset
+   http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+   ========================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center,
+dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody,
+tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure,
+figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* Force scrollbar */
+html { overflow-y: scroll; }
+
+/* Align radios and text inputs with their label */
+
+input[type='radio'] { vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label,
+input[type='button'],
+input[type='submit'],
+button {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+em { font-style: italic; }
+
+img {
+  border: 0;
+  vertical-align: middle;
+}
+
+sub,
+sup {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 55%;
+  line-height: 0;
+}
+
+sup { top: -.7em; }
+
+sub { bottom: -.25em; }
+
+/* 1.2. Clear Fix
+   ========================================================================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+
+.cf { *zoom: 1; }
+
+/* 1.3. Font class declaration
+   ========================================================================== */
+/*
+ * Mention the font property (eg: font-family, font-size, font-weight, font-style
+ * etc) that have been commonly used in the html document. Make a class of it and
+ * apply to the element wherever it is needed. If any single property in changed,
+ * then override only that property in the particular class which is used for the
+ * element.
+ * (NOTE: Remove this commented code once you start 
+ * developing the code. Remove the following font class and add your own
+ * as this is just and example to let you know. If there is only one font family
+ * followed throughout the site, then menstion the font property in body. No need
+ * of creating an extra class for it) */
+
+.futura-bold-font {
+  font-family: 'Futura Bold', 'Gill Sans', Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+ul{ list-style-type: none; }
+a{ text-decoration: none; }
+.wrapper{
+  max-width: 80%;
+  margin: 0 auto;
+}
+h2{
+  padding-bottom: 17px;
+  text-transform: uppercase;
+  font-size: 43px;
+  color: white;
+}
+h5 {
+  padding: 21px 0px 41px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.banner_left { flex-basis: 50%; }
+.banner_left span {
+  margin: 51px 0px;
+  border-radius: 21px;
+  background-color: #3887ED;
+  text-transform: capitalize;
+  color: white;
+  transition: all 0.8s ease;
+}
+.download::before {
+  content: "\f179";
+  padding-right: 10px;
+  font-family: 'FontAwesome';
+  color: white;
+}
+.banner_right {
+  position: absolute;
+  top: 200px;
+  right: 70px;
+  flex-basis: 50%;
+}
+.banner_right img{ box-shadow: 0px 0px 19px -4px; }
+.banner_left h5 {
+  line-height: 38px;
+  color: white;
+  font-size: 21px;
+}
+.download {
+  padding: 14px 40px;
+  color: white;
+  background-color: #3887ED;
+  border-radius: 21px;
+  text-transform: capitalize;
+  transition: all 0.8s ease;
+}
+.download:hover {
+  background-color: #fff;
+  color: #3887ED;
+}
+.download:hover::before { color: #3887ED; }
+section.start {
+  padding: 300px 0px;
+  position: relative;
+  background-color: #39DEFE;
+}
+section.blog_2 { padding-top: 292px }
+section.blog_2 .wrapper{ border-bottom: 1px solid #80808033; }
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow: -1px -10px 24px -12px;
+}
+.blog_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.blog_left { flex-basis: 38%; }
+.blog_right {
+  flex-basis: 50%;
+  text-align: justify;
+}
+.blog_right h3::after {
+  content: "";
+  height: 3px;
+  width: 33px;
+  background-color: blue;
+  position: absolute;
+  top: 51px;
+  left: 0;
+}
+h3 {
+  position: relative;
+  font-size: 33px;
+  text-transform: capitalize;
+}
+p {
+  padding-top: 38px;
+  line-height: 32px;
+  font-weight: bold;
+  color: gray;
+  font-size: 17px;
+}
+section.pixel_blog { padding: 211px 0px; }
+.pixel_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+section.pixel_blog .wrapper{ border-bottom: 1px solid #80808033; }
+.pixel_para {
+  padding-top: 211px;
+  flex-basis: 50%;
+  text-align: justify;
+}
+.group_blog { flex-basis: 38%; }
+.pixel_para h3::after {
+  content: "";
+  height: 3px;
+  width: 33px;
+  background-color: blue;
+  position: absolute;
+  top: 51px;
+  left: 0;
+}
+.design_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.design_para {
+  padding-top: 165px;
+  flex-basis: 50%;
+  text-align: justify;
+}
+.design_para h3::after {
+  content: "";
+  width: 33px;
+  height: 3px;
+  background-color: blue;
+  position: absolute;
+  top: 51px;
+  left: 0;
+}
+.left_design { flex-basis: 38%; }
+.rev-section.wrapper { text-align: center; }
+.rev-section h3{
+  padding-bottom: 74px;
+  position: unset;
+  font-size: 33px;
+  text-transform: capitalize;
+}
+section.rev-section {
+  padding: 150px 0px;
+  background-color: #F2F2F2;
+}
+.rev-section{ text-align: center; }
+.rev-section figure{
+  width: 40%;
+  margin: 0 auto;
+}
+.rev-section img { border-radius: 50%; }
+.star::after {
+  content: "\f005";
+  padding-right: 5px;
+  color: #d1d10ceb;
+  font: normal normal normal 14px/1 FontAwesome;
+}
+ul.rev-stars {
+  display: flex;
+  justify-content: center;
+}
+.rev-section p {
+  width: 70%;
+  margin: 0 auto;
+}
+section.feature {
+  padding: 150px 0px;
+  text-align: center;
+}
+a.first_icon::after {
+  content: "\f10b";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 47px;
+  color: #3887ED;
+}
+a.first_icon:hover::after { color: #EEEEEF; }
+a.second_icon::after {
+  content: "\f004";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 47px;
+  color: #3887ED;
+}
+a.second_icon:hover::after { color: #EEEEEF; }
+a.third_icon::after {
+  content: "\f005";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 47px;
+  color: #3887ED;
+}
+a.third_icon:hover::after { color: #EEEEEF; }
+a.fourth_icon_icon::after {
+  content: "\f013";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 47px;
+  color: #3887ED;
+}
+a.fourth_icon_icon:hover::after { color: #EEEEEF; }
+ul.feature_group a {
+  padding: 47px 34px 26px 39px;
+  background-color: #EEEEEF;
+  border-radius: 9px;
+  transition: all 0.8s ease;
+}
+ul.feature_group a:hover { background-color: #3887ED; }
+h4 {
+  padding-top: 75px;
+  font-size: 19px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+ul.feature_group {
+  padding: 77px 0px;
+  display: flex;
+  text-align: center;
+}
+li { padding: 5px 5px; }
+.feature_group p{ padding: 0px; }
+section.subscribe {
+  padding: 150px 0px;
+  background-color: #39DEFE;
+  text-align: center;
+}
+.subscribe p {
+  width: 70%;
+  padding-bottom: 60px;
+  margin: 0 auto;
+}
+input[type="text"] {
+  padding: 20px 65px;
+  margin-bottom: 37px;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  color: black;
+  background-color: #88ECFF;
+  border: none;
+  font-size: 19px;
+  border-radius: 50px;
+  font-weight: bold;
+  outline: none;
+}
+button {
+  padding: 18px 148px;
+  background-color: #3887ED;
+  border-radius: 40px;
+  border: none;
+  font-size: 22px;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.8s ease;
+}
+button:hover{
+  background-color: #fff;
+  color: #3887ED;
+}
+::placeholder{
+  margin: 0;
+  padding: 0;
+}
+footer {
+  padding: 130px 0px;
+  text-align: center;
+}
+footer span {
+  padding-bottom: 14px;
+  display: block;
+}
+a.facebook::after {
+  content: "\f39e";
+  font: 30px "Font Awesome 5 Brands";
+  color: #3887ED;
+}
+a.facebook:hover::after {
+  color: #B39D3B;
+}
+a.twitter::after {
+  content: "\f099";
+  font-size: 35px;
+  font-family: 'FontAwesome';
+  color: #3887ED;
+}
+a.twitter:hover::after {
+  color: #B39D3B;
+}
+a.in::after {
+  content: "\f0e1";
+  font-family: 'FontAwesome';
+  font-size: 30px;
+  color: #3887ED;
+}
+a.in:hover::after { color: #B39D3B; }
+a.apple::after {
+  content: "\f179";
+  font-size: 35px;
+  font-family: 'FontAwesome';
+  color: #3887ED;
+}
+a.apple:hover::after { color: #B39D3B; }
+ul.social_icons {
+  display: flex;
+  justify-content: center;
+}
+.social_icons li { padding: 5px 31px; }
+/*..............Media Query..............*/
+
+/*Media Query for 995px*/
+@media screen and (max-width:995px){
+  section.start { padding: 76px 0px; }
+  section.start { position: unset; }
+  .banner {
+    display: block;
+    text-align: center;
+  }
+  .banner_left { width: 100%; }
+  .banner_right {
+    width: 100%;
+    padding-top: 58px;
+    position: unset;
+  }
+  img { width: 80%; }
+  section.blog_2 { padding-top: 47px; }
+  .blog_right { padding-top: 30px; }
+  section.pixel_blog { padding: 145px 0px; }
+  .pixel_para { padding-top: 94px; }
+  .design_para { padding-top: 56px; }
+  section.rev-section { padding: 41px 0px; }
+  .rev-section h3 { padding-bottom: 39px; }
+  .rev-stars li{ flex-basis: 0; }
+  h5 { padding: 19px 0px 21px 0px; }
+  p { padding-top: 25px; }
+  section.feature { padding: 69px 0px; }
+  ul.feature_group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+   ul li { flex-basis: 50%; }
+  .feature_group li ul { padding-bottom: 51px; }
+  section.subscribe { padding: 93px 0px; }
+  button {
+    padding: 13px 225px;
+    margin: 35px 0px;
+  }
+  input[type="text"] {
+    padding: 18px 166px;
+    margin: 10px 14px;;
+    text-align: center;
+    border-radius: 29px;
+    color: #fff;
+  }
+  footer {
+    padding: 18px 0px;
+    text-align: center;
+  }
+  .social_icons li {
+    padding: 60px 20px;
+    flex-basis: 10%;
+  }
+  ul.social_icons {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/*Media Query for 600px*/
+@media screen and (max-width:600px){
+  .wrapper{ max-width: 95%; }
+  section.start { padding: 76px 0px; }
+  section.start { position: unset; }
+  .banner {
+    display: block;
+    text-align: center;
+  }
+  .banner_left { width: 100%; }
+  .banner_right {
+    width: 100%;
+    padding-top: 58px;
+    position: unset;
+  }
+  .blog_container {
+    text-align: center;
+    display: block;
+  }
+  .blog_left { padding-top: 83px; }
+  .blog_right {
+    width: 100%;
+    padding-top: 42px;
+  }
+  p { padding-top: 23px; }
+  section.pixel_blog { padding: 10px 0px; }
+  .pixel_container {
+    display: block;
+    text-align: center;
+  }
+  .pixel_para {
+    padding-top: 28px;
+    text-align: justify;
+  }
+  .group_blog { padding-top: 29px; }
+  .design_container {
+    display: block;
+    text-align: center;
+  }
+  .left_design { padding-top: 70px; }
+  .design_para {
+    padding-top: 57px;
+    text-align: justify;
+  }
+  section.rev-section { padding: 34px 0px; }
+  .rev-section h3 { padding-bottom: 19px; }
+  ul.rev-stars { padding: 0; }
+  section.feature { padding: 27px 0px; }
+  ul.feature_group {
+    padding: 49px 0px;
+    text-align: center;
+    display: block;
+  }
+  li { padding: 12px 5px;
+  }
+  h4 { padding-top: 24px; }
+  ul { padding-bottom: 36px; }
+  section.subscribe { padding: 58px 0px; }
+  input[type="text"] {
+    padding: 12px 10px;
+    margin: 8px 2px;
+    width: 100%;
+  }
+  button {
+    padding: 10px 63px;
+    margin: 22px 0px;
+  }
+  footer { padding: 34px 0px; }
+  .social_icons li { padding: 5px 17px; }
+  ul { padding-top: 47px; }
+}
+
